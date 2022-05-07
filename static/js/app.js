@@ -35,9 +35,16 @@ function handleClick() {
  // 6. Apply a filter method that will match the datetime value to the filtered date value
     if (date) {
         filteredData = filteredData.filter(row => row.datetime === date);
-    };
+    }
 
 // 7. Build the Filtered Table
 //  Pass in filteredData variable as the argument so that only the data that matches the filter is displayed.
     buildTable(filteredData);
-};
+}
+
+// Listen for the Event
+d3.selectAll("#filter-btn").on("click", handleClick);
+
+/// Build the Final Table - OG table loads as soon as the page does.
+buildTable(tableData);
+
