@@ -27,3 +27,17 @@ data.forEach((dataRow) => {
     );
   });
 
+// 5. Add the ability to filter the data.
+function handleClick() {
+    let date = d3.select("#datetime").property("value");
+    let filteredData = tableData;
+ 
+ // 6. Apply a filter method that will match the datetime value to the filtered date value
+    if (date) {
+        filteredData = filteredData.filter(row => row.datetime === date);
+    };
+
+// 7. Build the Filtered Table
+//  Pass in filteredData variable as the argument so that only the data that matches the filter is displayed.
+    buildTable(filteredData);
+};
